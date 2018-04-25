@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	
+<script>
+	var c=a();
+	function a(){
+		var i=0;
+		function b(){
+			alert(++i);
+		}
+		return b;
+	}
+</script>
+	
+</head>
+	
+<body>
+<h1>这是一个JavaScript闭包测试</h1> 
+<p id="demo">这里是分隔段落</p>
+<button onclick="c();">增加数值</button>
+</body>
+</html>
