@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新页面</title>
+</head>
+
+<body>
+    <input type='button' value='1' id="div1">
+    <input type='button' value='2' id="div2">
+    <input type='button' value='3' id="div3">
+
+    <script>
+        aInput = document.getElementsByTagName('input');
+        function show(ed) {
+            return function () {
+                alert(ed);
+            }
+        }
+        for (var i = 0; i < aInput.length; i++) {
+            aInput[i].onclick = show(i+1);
+        }
+    </script>
+
+</body>
+
+</html>

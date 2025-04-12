@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新页面</title>
+</head>
+
+
+<body>
+    <script>
+        const materials = [
+            'Hydrogen',
+            'Helium',
+            'Lithium',
+            'Beryllium'
+        ];
+        //基本表达式
+        console.log(materials.map(material => { const a = material.length; return a + 2; }));
+        //简单表达式语法
+        console.log(materials.map((a) => a.length));
+        //当只有一个参数时，圆括号是可选的
+        console.log(materials.map(a => { return a.length; }));
+        //加括号的函数体返回对象
+        console.log(materials.map((a) => ({ len: a.length })));
+
+        var elements = [
+            'Hydrogen',
+            'Helium',
+            'Lithium',
+            'Beryllium'
+        ];
+
+        alert(elements.map(({ "length": xX }) => xX)); // [8, 6, 7, 9]
+
+        var func = (a, b, c) => a + b + c;
+        alert(func(1, 2, 3));
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <title>VUE表单复选框</title>
+</head>
+
+<body>
+    <div id="app">
+        <p>单个复选框：</p>
+        <input type="checkbox" id="checkbox" v-model="checked">
+        <label for="checkbox">{{ checked }}</label>
+
+        <p>多个复选框：</p>
+        <input type="checkbox" id="a1" value="张三" v-model="checkedNames">
+        <label for="a1">张三</label>
+        <input type="checkbox" id="a2" value="李四" v-model="checkedNames">
+        <label for="a2">李四</label>
+        <input type="checkbox" id="a3" value="王五" v-model="checkedNames">
+        <label for="a3">王五</label>
+        <br>
+        <span>选择的值为: {{ checkedNames }}</span>
+    </div>
+
+    <script>
+        const app = {
+            data() {
+                return {
+                    checked: false,
+                    checkedNames: []
+                }
+            }
+        }
+
+        Vue.createApp(app).mount('#app')
+    </script>
+</body>
+
+</html>

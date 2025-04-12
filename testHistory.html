@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>测试History</title>
+</head>
+
+<body>
+    <button id="btn1">后退</button>
+    <button id="btn2">后退3</button>
+    <script>
+        //        history.back();
+        btn1.onclick = function () {
+            history.back();
+        }
+        btn2.onclick = function () {
+            history.go(-3);
+        }
+    </script>
+</body>
+
+</html>

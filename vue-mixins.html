@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <script src="https://unpkg.com/vue@3"></script>
+    <script src="https://unpkg.com/vue-router@4"></script>
+    <title>VUE路由</title>
+    <style>
+        ._active {
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app"></div>
+    <script>
+        const myMixin = {
+            data() {
+                return {
+                    message: 'hello',
+                    foo: 'runoob'
+                }
+            }
+        }
+
+        const app = Vue.createApp({
+            data() {
+                return {
+                    message: 'goodbye',
+                    bar: 'def'
+                }
+            },
+            mixins: [myMixin],
+            created() {
+                document.write(JSON.stringify(this.$data))
+            }
+        })
+
+        app.mount('#app')
+    </script>
+</body>
+
+</html>

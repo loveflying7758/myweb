@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <title>v-if v-else</title>
+</head>
+
+<body>
+    <div id="app">
+        <p v-if="showMessage">Hello Vue!</p>
+        <p v-else>Goodbye Vue!</p>
+    </div>
+
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return {
+                    showMessage: true
+                }
+            }
+        })
+
+        const vm = app.mount('#app')
+    </script>
+</body>
+
+</html>

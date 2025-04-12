@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>测试do while</title>
+    <link rel="stylesheet" href="css/css.css">
+</head>
+
+<body>
+</body>
+<script>
+
+    var a1 = [
+        { name: '刘备', age: 36 },
+        { name: '关羽', age: 33 },
+        { name: '张飞', age: 31 }
+    ];
+    /*alert(a1.(1).name);
+    console.log(a1);
+    alert(a1[0].name);*/
+
+    function compare(prop) {
+        return function (a, b) {
+            var value1 = a[prop];
+            var value2 = b[prop];
+            return value1 - value2;
+        }
+    }
+    a1.sort(compare('age'));
+    console.log(a1);
+</script>
+
+</html>

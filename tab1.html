@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function TabNode(node) {
+            var _this = this;
+            this.node = node;
+            //声明的东西 
+            this.varNode(node);
+            //Event基础事件 
+            this.tabEvent(_this);
+            //定时器模快 
+            this.Interval && this.IntervalSet(_this);
+        };
+
+        TabNode.prototype = {
+            'varNode': function (node) {
+                //console.log(node);
+                this.allInput = node.Node.getElementsByTagName('input');
+                this.allDiv = node.Node.getElementsByTagName('div');
+                this.Interval = node.Interval;
+                this.Interval && (this.setInter = null, this.setIndex = 0);
+            }
+            'tabEvent': function (_this) {
+                for (var i = 0; i < this.allInput.length; i++) {
+                    this.allInput[i].index = i;
+                    this.allInput[i].onclick = function () {
+                        for (var i = 0; i < _this.allInput.length; i++) {
+                            _this.allInput[i].className = '';
+                            _this.allDiv[i].style.display = 'none';
+                        }
+                        this.className = 'active';
+                        _this.allDiv[this.index].style.display = 'black';
+                    }
+                }
+            }
+            'IntervalSet': function (_this) {
+                clearInterval(this.setInter);
+                this.setInter = setInterval(function () {
+                    _this.setIndex++;
+                    if (_this.setIndex == _this.allInput.length) _this.setIndex = 0;
+                    for (var i = 0; i < _this.allInput.length; i++) {
+                        _this.allInput[i].className = '';
+                        _this.allDiv[i].style.display = 'none';
+                    }
+                    _this.allInput[_this.setIndex].className = 'active';
+                    _this.allDiv[_this.setIndex].style.display = 'block';
+                }, this.node.IntervalTime);
+                this.node.Node['onmouseover'] = function () {
+                    clearInterval(_this.setInter);
+                }
+            }
+        }
+
+        new TabNode({
+            Node: document.getElementById('tab'),
+            Interval: true,
+            IntervalTime: 10
+        });
+
+        new TabNode({
+            Node: document.getElementById('tab2'),
+            Interval: false,
+            IntervalTime: 10
+        });
+    </script>
+</body>
+</htm1>

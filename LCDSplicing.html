@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>计算LCD拼接大屏宽高面积</title>
+    <style>
+        table {
+            border: 1px solid black;
+        }
+
+        td {
+            width: 130px;
+        }
+
+        input,
+        select {
+            box-sizing: border-box;
+        }
+
+        .w60 {
+            width: 60px;
+        }
+
+        .rit {
+            text-align: right;
+            width: 60px;
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+        <tr>
+            <td>单屏尺寸（吋）：</td>
+            <td class="rit"><input type="text" id="size" class="w60"></td>
+        </tr>
+        <tr>
+            <td>横向屏数：</td>
+            <td class="rit"><input type="text" id="column" class="w60"></td>
+        </tr>
+        <tr>
+            <td>纵向屏数：</td>
+            <td class="rit"><input type="text" id="row" class="w60 "></td>
+        </tr>
+    </table>
+    <input type="button" id="btnOK" value="确认">
+    <p></p>
+
+    <table>
+        <tr>
+            <td>
+                总屏宽（米）：</td>
+            <td class="rit"><span id="showX"></span></td>
+        </tr>
+        <tr>
+            <td>
+                总屏高（米）：</td>
+            <td class="rit"><span id="showY"></span></td>
+        </tr>
+        <tr>
+            <td>面积（平方米）：</td>
+            <td class="rit"><span id="showArea"></span></td>
+        </tr>
+    </table>
+
+
+    <script>
+        var x, y, area;
+        function calc1() {
+            if (size.value == "" | column.value == "" | row.value == "") {
+                alert("请输入各栏参数");
+            }
+            else {
+                x = Math.round(size.value * 0.0254 * 0.8716 * column.value * 1000) / 1000;
+                y = Math.round(size.value * 0.0254 * 0.4903 * row.value * 1000) / 1000;
+                area = Math.round(x * y * 1000) / 1000;
+
+                showX.innerHTML = x.toFixed(3);
+                showY.innerHTML = y.toFixed(3);
+                showArea.innerHTML = area.toFixed(3);
+            }
+        }
+
+        btnOK.onclick = function () {
+            calc1();
+        }
+
+        size.onkeydown = function (e) {
+            if (e.which == 13) {
+                calc1();
+            }
+        }
+
+        column.onkeydown = function (e) {
+            if (e.which == 13) {
+                calc1();
+            }
+        }
+
+        row.onkeydown = function (e) {
+            if (e.which == 13) {
+                calc1();
+            }
+        }
+
+    </script>
+</body>
+
+</html>

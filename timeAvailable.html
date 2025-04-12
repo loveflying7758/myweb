@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>测试员工一天可用工作时间片段是否满足订单时间</title>
+
+</head>
+
+<body>
+    <p id="result"></p>
+</body>
+<script>
+    var workTime = new Array(8, 12, 13, 18, 19, 22);
+    var orderTimeStart = 19;
+    var orderTimeEnd = 21.5;
+    var obj = document.getElementById("result");
+
+    //检查员工甲工作时间是否满足订单时间
+    function testTimeAvailable() {
+        for (i = 0; i < workTime.length; i += 2) {
+            let workTimeStart = workTime[i];
+            let workTimeEnd = workTime[i + 1];
+            console.log(workTimeStart, workTimeEnd);
+            console.log(orderTimeStart, orderTimeEnd);
+            if (orderTimeStart >= workTimeStart && orderTimeEnd <= workTimeEnd) {
+                obj.innerHTML = "工作时间满足订单时间要求";
+                break;
+            }
+            obj.innerHTML = "工作时间不满足订单时间要求";
+        }
+    }
+    testTimeAvailable();
+</script>
+</htm1>

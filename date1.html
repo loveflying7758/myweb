@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新页面</title>
+</head>
+
+<body>
+    <script>
+        var availableTime = new Date();//定义订单最早可用开始时间（赋初值为当前时间）
+        var delayMinutes = 40;//服务延后分钟数（预约提前的分钟数）
+
+        availableTime.setMinutes(availableTime.getMinutes() + delayMinutes);//订单最早可用开始时间，加上服务延后分钟数
+        var minutesAfterDelay = availableTime.getMinutes();//取订单最早可用开始时间的分钟值
+
+        var addMinutes = 0;//定义对齐至每30分钟时间节点需追加的分钟数（赋初值0）
+        minutesAfterDelay >= 30 ? addMinutes = 60 - minutesAfterDelay : addMinutes = 30 - minutesAfterDelay;//计算需追加的分钟数
+        availableTime.setMinutes(availableTime.getMinutes() + addMinutes);//订单最早可用开始时间，加上对齐30分钟时间节点需追加的分钟数
+
+        //下面取订单最早可用开始时间的年月日时分，方便针对性的界面显示设计
+        var availableYear = availableTime.getFullYear();
+        var availableMonth = availableTime.getMonth() + 1;
+        var availableDay = availableTime.getDate();
+        var availableHour = availableTime.getHours();
+        var availableMinute = availableTime.getMinutes();
+
+        alert('最早可用开始时间：' + availableYear + '年' + availableMonth + '月' + availableDay + '日' + availableHour + '点' + availableMinute + '分');
+    </script>
+
+</body>
+
+</html>

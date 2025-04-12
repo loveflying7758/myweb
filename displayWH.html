@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>计算投影画面宽高面积距离</title>
+    <style>
+        table {
+            border: 1px solid black;
+        }
+
+        td {
+            width: 130px;
+        }
+
+        input,
+        select {
+            box-sizing: border-box;
+        }
+
+        .w80 {
+            width: 80px;
+        }
+
+        .rit {
+            text-align: right;
+            width: 80px;
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+        <tr>
+            <td>画面尺寸（吋）：</td>
+            <td class="rit"><input type="text" id="long" class="w80"></td>
+        </tr>
+        <tr>
+            <td>宽高比：</td>
+            <td class="rit"><select id="prop" class="w80">
+                    <option value="1">16:9</option>
+                    <option value="2">4:3</option>
+                </select></td>
+        </tr>
+        <tr>
+            <td>投射比：</td>
+            <td class="rit"><input type="text" id="ratio" value=1.2 class="w80 "></td>
+        </tr>
+    </table>
+    <input type="button" id="btnOK" value="确认">
+    <p></p>
+
+    <table>
+        <tr>
+            <td>
+                宽（米）：</td>
+            <td class="rit"><span id="showX"></span></td>
+        </tr>
+        <tr>
+            <td>
+                高（米）：</td>
+            <td class="rit"><span id="showY"></span></td>
+        </tr>
+        <tr>
+            <td>面积（平方米）：</td>
+            <td class="rit"><span id="showArea"></span></td>
+        </tr>
+        <tr>
+            <td>
+                屏幕距离（米）：</td>
+            <td class="rit"><span id="showDistance"></span></td>
+        </tr>
+    </table>
+
+
+    <script>
+        var l, x, y, area, distance;
+        function calc() {
+            if (long.value != "") {
+                l = Math.round(long.value * 0.0254 * 1000) / 1000;
+
+                if (prop.value == 1) {
+                    x = Math.round(l * 0.8716 * 1000) / 1000;
+                    y = Math.round(l * 0.4903 * 1000) / 1000;
+                }
+                else {
+                    x = (Math.round(l * 0.8 * 1000) / 1000).toFixed(3);
+                    y = (Math.round(l * 0.6 * 1000) / 1000).toFixed(3);
+                }
+                area = (Math.round(x * y * 1000) / 1000).toFixed(3);
+                distance = (Math.round(x * ratio.value * 1000) / 1000).toFixed(3);
+
+                showX.innerHTML = x;
+                showY.innerHTML = y;
+                showArea.innerHTML = area;
+                showDistance.innerHTML = distance;               
+            }
+            else {
+                alert("请输入屏幕尺寸大小");
+            }
+        }
+
+        btnOK.onclick = function () {
+            calc();
+        }
+
+        long.onkeydown = function (e) {
+            if (e.which == 13) {
+                calc();
+            }
+        }
+
+        ratio.onkeydown = function (e) {
+            if (e.which == 13) {
+                calc();
+            }
+        }
+
+        prop.onchange = function () {
+            calc();
+        }
+
+    </script>
+</body>
+
+</html>

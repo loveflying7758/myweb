@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>测试location</title>
+</head>
+
+<body>
+    <button id="btn1">跳转到百度</button>
+    <button id="btn2">刷新</button>
+    <script>
+        btn1.onclick = function () {
+            location.href = "https://www.baidu.com";
+        }
+        btn2.onclick = function () {
+            //            location.href = location.href;
+            location.reload();
+        }
+    </script>
+</body>
+
+</html>

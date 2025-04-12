@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <script src="js/vue.global.js"></script>
+    <title>VUE表单select列表（多选）</title>
+</head>
+
+<body>
+    <div id="app">
+        <select v-model="selected" name="bro" multiple>
+            <option :value="v1">{{msg1}}</option>
+            <option :value="v2">{{msg2}}</option>
+            <option :value="v3">{{msg3}}</option>
+        </select>
+
+        <div id="output">
+            {{msg}}{{selected}}
+        </div>
+    </div>
+
+    <script>
+        const app = {
+            data() {
+                return {
+                    v1: '1刘备',
+                    v2: '2关羽',
+                    v3: '3张飞',
+                    msg1: '刘备 （统）90（武）77（智）85',
+                    msg2: '关羽 （统）90（武）98（智）80',
+                    msg3: '张飞 （统）82（武）98（智）65',
+                    msg: '你选择的伙伴是：',
+                    selected: ''
+                }
+            }
+        }
+
+        Vue.createApp(app).mount('#app')
+    </script>
+</body>
+
+</html>

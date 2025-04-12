@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <title>v-for1</title>
+</head>
+
+<body>
+    <div id="app">
+        <!--v-for循环数组的时候有两个参数 第一个是数组项(表示数组中的每一项) 第二个是索引值 也叫下标
+        <div v-for="(item, index) in arr2">{{item}} ---- {{index}}</div>-->
+
+        <!--v-for循环对象的时候有三个参数 第一个是键值对的值（value）
+        第二个是键值对的键（key）第三个是下标 (index)-->
+        <div v-for="(value, key, index) in area">
+            <h3>{{key}} ---- {{index}}</h3>
+            <ul>
+                <li v-for="item in value">{{item}}</li>
+                <!--因为value是数组所以要再次循环-->
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        const VueApp = {
+            data: {
+                //数组
+                arr2: [{
+                    title: '星期一'
+                }, {
+                    title: '星期二'
+                }, {
+                    title: '星期三'
+                }],
+                //对象
+                area: {
+                    "A": ["安阳", "安徽"],
+                    "B": ["北京", "保定"],
+                    "C": ["长安", "长沙"]
+                },
+            },
+        }
+
+        Vue.createApp(VueApp).mount('#app')
+    </script>
+</body>
+
+</html>

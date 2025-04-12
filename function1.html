@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新页面</title>
+</head>
+
+<body>
+    <script>
+        onload = function () {
+            function a() { alert(myName.value); }
+            document.getElementById('ipt').onclick = a;
+        }
+    </script>
+    名字：<input type="text" id="myName"><br>
+    <input type="button" value='点我' id="ipt">
+</body>
+
+</html>

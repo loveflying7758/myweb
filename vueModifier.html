@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <title>VUE修饰符</title>
+</head>
+
+<body>
+    <div id="app" @click="three($event)">{{mes1}}
+        <div @click="two($event)">{{mes1}}
+            <button @click.stop="one($event)">{{mes3}}</button>
+        </div>
+    </div>
+
+    <script>
+        const app = {
+            data() {
+                return {
+                    mes1: "这是第一个DIV标记",
+                    mes2: "这是第二个DIV标记",
+                    mes3: "点我"
+                }
+            },
+            methods: {
+                one(event) {
+                    alert('点到按钮')
+                },
+                two(event) {
+                    alert('点到第二个DIV')
+                },
+                three(event) {
+                    alert('点到第一个DIV')
+                }
+            }
+        }
+        Vue.createApp(app).mount('#app')
+
+    </script>
+</body>
+
+</html>

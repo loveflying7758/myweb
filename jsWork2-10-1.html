@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS作业二-10-1</title>
+    <style>
+        div {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        #myDivBag {
+            width: 400px;
+            height: 300px;
+            margin: auto;
+            border: 1px solid black;
+        }
+
+        .myDiv {
+            width: 20px;
+            height: 300px;
+            float: left;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="myDivBag">
+        <div class="myDiv"></div>
+        <div class="myDiv"></div>
+        <div class="myDiv"></div>
+        <div class="myDiv"></div>
+        <div class="myDiv"></div>
+        <div class="myDiv"></div>
+        <div class="myDiv"></div>
+        <div class="myDiv"></div>
+        <div class="myDiv"></div>
+        <div class="myDiv"></div>
+        <div class="myDiv"></div>
+        <div class="myDiv"></div>
+        <div class="myDiv"></div>
+        <div class="myDiv"></div>
+        <div class="myDiv"></div>
+        <div class="myDiv"></div>
+        <div class="myDiv"></div>
+        <div class="myDiv"></div>
+        <div class="myDiv"></div>
+        <div class="myDiv"></div>
+    </div>
+    <button id="myBtn">切换</button>
+</body>
+<script>
+    myBtn.onclick = function () {
+        var a = document.getElementsByClassName("myDiv");
+        var x = 0;
+        if (a[0].style.background == "red") {
+            x = 1;
+        }
+        else {
+            x = 0;
+        }
+
+        for (var i = 0; i < a.length; i++) {
+            if (i % 2 == x) {
+                a[i].style.background = "black";
+            }
+            else {
+                a[i].style.background = "red";
+            }
+        }
+
+</script>
+
+</html>

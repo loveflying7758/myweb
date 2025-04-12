@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>设定始末时间</title>
+
+</head>
+
+<body>
+    <script>
+        onload = function () {
+            document.getElementById("submitMe").onclick = function () {
+                let x = document.getElementById("timeStart").value;
+                let serviceDuration = document.getElementById("duration").value;
+
+                let serviceTimeStart = new Date(x);  /*等效于以下5行
+                serviceTimeStart.setFullYear(parseInt(x.substring(0, 4)));
+                serviceTimeStart.setMonth(parseInt(x.substring(5, 7)) - 1);
+                serviceTimeStart.setDate(parseInt(x.substring(8, 10)));
+                serviceTimeStart.setHours(parseInt(x.substring(11, 13)));
+                serviceTimeStart.setMinutes(parseInt(x.substring(14, 16)));*/
+
+                let serviceTimeEnd = new Date(serviceTimeStart.getTime());  //用getTime()方法建立了一个新的日期对象，而非对原对象的引用
+                serviceTimeEnd.setMinutes(serviceTimeEnd.getMinutes() + parseInt(serviceDuration));
+
+                alert("开始时间是：" + serviceTimeStart.toLocaleString() + "，经过" + serviceDuration + "分钟后的时间是：" + serviceTimeEnd.toLocaleString());
+                //toLocaleString()生成本地日期格式，去掉后面的时区内容
+            }
+            testTimeAvailable();
+        }
+
+        var workTime = new Array(8, 12, 13, 18);
+        var orderTimeStart = 9;
+        var orderTimeEnd = 11.5;
+
+        //检查员工甲工作时间是否满足订单时间
+        function testTimeAvailable() {
+            for (i = 0; i <= workTime.lengh(); i += 2) {
+                workTimeStart = workTime[i];
+                workTimeEnd = workTime[i + 1];
+                if (orderTimeStart >= workTimeStart || orderTimeEnd <= workTimeEnd) {
+                    return ture;
+                    break;
+                }
+            }
+            return false;
+        }
+
+        testTimeAvailable() ? document.getElementById("result").innerHTML = "工作时间满足订单时间要求" : document.getElementById("result").innerHTML = "工作时间不满足订单时间要求";
+
+
+    </script>
+    请输入服务时间：<input type="datetime-local" id="timeStart"><br>
+    请输入服务时长：<input type="text" id="duration">分钟<br>
+    <button id="submitMe">提交</button><br>
+    <br>
+    <p id="result"></p>
+</body>
+</htm1>

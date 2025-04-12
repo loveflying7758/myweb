@@ -1,0 +1,71 @@
+{
+    "data": {
+        "name": "网站",
+        "num": 3,
+        "sites": [
+            {
+                "name": "Google",
+                "info": [
+                    "Android",
+                    "Google 搜索",
+                    "Google 翻译"
+                ]
+            },
+            {
+                "name": "Runoob",
+                "info": [
+                    "菜鸟教程",
+                    "菜鸟工具",
+                    "菜鸟微信"
+                ]
+            },
+            {
+                "name": "Taobao",
+                "info": [
+                    "淘宝",
+                    "网购"
+                ]
+            }
+        ]
+    },
+    "status": 200,
+    "statusText": "OK",
+    "headers": {
+        "accept-ranges": "bytes",
+        "content-length": "291",
+        "content-type": "application/json",
+        "date": "Tue, 20 Feb 2024 03:59:46 GMT",
+        "etag": "\"57a51d54d62da1:0\"",
+        "last-modified": "Sun, 18 Feb 2024 09:35:39 GMT",
+        "server": "Microsoft-IIS/10.0"
+    },
+    "config": {
+        "transitional": {
+            "silentJSONParsing": true,
+            "forcedJSONParsing": true,
+            "clarifyTimeoutError": false
+        },
+        "adapter": [
+            "xhr",
+            "http"
+        ],
+        "transformRequest": [
+            null
+        ],
+        "transformResponse": [
+            null
+        ],
+        "timeout": 0,
+        "xsrfCookieName": "XSRF-TOKEN",
+        "xsrfHeaderName": "X-XSRF-TOKEN",
+        "maxContentLength": -1,
+        "maxBodyLength": -1,
+        "env": {},
+        "headers": {
+            "Accept": "application/json, text/plain, */*"
+        },
+        "method": "get",
+        "url": "ajax/json_demo.json"
+    },
+    "request": "[object XMLHttpRequest]"
+}

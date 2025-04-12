@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <script src="https://unpkg.com/vue@3"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <title>VUE Ajax</title>
+</head>
+
+<body>
+    <div id="app">
+        {{ info }}
+    </div>
+
+    <script>
+        const app = {
+            data() {
+                return {
+                    info: 'Ajax 测试!!'
+                }
+            },
+            mounted() {
+                axios
+                    .get('ajax/json_demo.json')
+                    .then(response => (this.info = response))
+                    .catch(function (error) { // 请求失败处理
+                        console.log(error);
+                    });
+            }
+        }
+
+        Vue.createApp(app).mount('#app')
+    </script>
+</body>
+
+</html>

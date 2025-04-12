@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新页面</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        #div1 {
+            width: 200px;
+            height: 200px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="div1"></div>
+    <script>
+        div1.onmousedown = function (e) {
+            var ev = e || event;
+            var l = ev.clientX - div1.offsetLeft;
+            var t = ev.clientY - div1.offsetTop;
+            document.onmousemove = function (e) {
+                var ev = e || event;
+                div1.style.left = ev.clientX - l + 'px';
+                div1.style.top = ev.clientY - t + 'px';
+            }
+            document.onmouseup = function () {
+                document.onmousemove = null;
+                document.onmouseup = null;
+            }
+        }
+    </script>
+
+</body>
+
+</html>

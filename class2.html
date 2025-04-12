@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>简易留言板</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <script src="../js/vue.global.js"></script>
+    <title>新页面</title>
+</head>
+
+<body>
+    <script>
+        class Animal {
+            constructor(name) {
+                this.name = name;
+            }
+
+            eat() {
+                console.log(this.name + " is eating.");
+            }
+        }
+
+        class Dog extends Animal {
+            constructor(name, breed) {
+                super(name);
+                this.breed = breed;
+            }
+
+            bark() {
+                console.log(this.breed + " is barking.");
+            }
+        }
+
+        const dog = new Dog("Buddy", "Labrador");
+        dog.eat();
+        dog.bark();
+    </script>
+</body>
+
+</html>

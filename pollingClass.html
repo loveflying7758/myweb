@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>模拟QQ作业</title>
+    <style>
+        div {
+            height: 200px;
+            width: 200px;
+            background: black;
+            transition: 0.5s;
+        }
+
+        .div1 {
+            width: 400px;
+        }
+
+        .div2 {
+            height: 500px;
+        }
+
+        .div3 {
+            background: red;
+        }
+
+        .div4 {
+            box-shadow: 0 0 10px black;
+        }
+
+        .div5 {
+            border-radius: 50%;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="go">go</button>
+    <div id="myDiv"></div>
+    <script>
+        var index = 1;
+        go.onclick = function () {
+            if (index < 6) {
+                myDiv.classList.add("div" + index);
+                index++;
+            }
+            else {
+                myDiv.removeAttribute("class");
+                index = 1;
+            }
+        }
+    </script>
+</body>
+
+</html>

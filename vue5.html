@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <title></title>
+</head>
+
+<body>
+    <div id="app">
+        <div id="lightDiv">
+          <div v-show="lightOn"></div>
+          <img src="https://static.jyshare.com/images/svg/img_lightBulb.svg">
+        </div>
+        <button v-on:click=" lightOn =! lightOn ">开/关</button>
+      </div>
+      
+      <script>
+      const app = Vue.createApp({
+        data() {
+          return {
+            lightOn: false
+          }
+        }
+      })
+      app.mount('#app')
+      </script>
+</body>
+
+</html>

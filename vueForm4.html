@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <script src="js/vue.global.js"></script>
+    <title>VUE表单select列表（v-for）</title>
+</head>
+
+<body>
+    <div id="app">
+        <select v-model="selected" name="bro">
+            <option v-for='option in options' :value="option.value">{{option.text}}
+            </option>
+        </select>
+        <p>你选的是：{{selected}}</p>
+    </div>
+
+    <script>
+        const app = {
+            data() {
+                return {
+                    selected: '',
+                    options: [
+                        { text: '林冲', value: '东京八十万禁军教头' },
+                        { text: '鲁智深', value: '拳打镇关西的鲁提辖' },
+                        { text: '武松', value: '井阳岗打虎英雄' },
+                    ]
+                }
+            }
+        }
+
+        Vue.createApp(app).mount('#app')
+    </script>
+</body>
+
+</html>

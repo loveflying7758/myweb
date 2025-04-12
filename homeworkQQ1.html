@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>模拟QQ作业</title>
+    <style>
+        #userBox {
+            height: 30px;
+            line-height: 30px;
+        }
+
+        #showMsg {
+            width: 300px;
+            height: 500px;
+            border: 1px solid black;
+            overflow: auto;
+        }
+
+        #msgBox {
+            height: 30px;
+            line-height: 30px;
+        }
+
+        #msgIpt {
+            width: 246px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="userBox">
+        姓名：
+        <input type="text" id="userIpt">
+        <input type="button" id="btnUser" value="确定">
+    </div>
+    <div id="showMsg">
+        <!-- <dl>
+            <dt></dt>
+            <dd></dd>
+        </dl> -->
+    </div>
+    <div id="msgBox">
+        <input type="text" id="msgIpt">
+        <input type="button" id="btnMsg" value="发送">
+    </div>
+
+    <script>
+        var user = "", msg = "";
+
+        onload = function () {
+            userIpt.focus();
+        }
+
+        function userJudge() {
+            if (userIpt.value == "") {
+                alert("名字不能为空");
+            }
+            else {
+                user = userIpt.value;
+                userBox.style.display = "none";
+                showMsg.innerHTML = "";
+                msgIpt.focus();
+            }
+        }
+
+        function msgJudge() {
+            if (user == "") {
+                showMsg.innerHTML = "你还没输入名字";
+            }
+            else if (msgIpt.value != "") {
+                var odl = document.createElement('dl');
+                msg = msgIpt.value;
+                odl.innerHTML = "<dt>" + user + "</dt>" + "<dd>" + msg + "</dd>";
+                showMsg.appendChild(odl);
+                msgIpt.value = "";
+                showMsg.scrollTop = showMsg.scrollHeight;
+                msgIpt.focus();
+            }
+        }
+
+        userIpt.onkeydown = function (e) {
+            if (e.which == 13 && !e.altKey && !e.shiftKey && !e.ctrlKey) {
+                userJudge();
+            }
+        }
+
+        btnUser.onclick = function userJudge() { }
+
+        msgIpt.onkeydown = function (e) {
+            if (e.which == 13 && !e.altKey && !e.shiftKey) {
+                msgJudge();
+            }
+        }
+
+        btnMsg.onclick = function msgJudge() { }
+
+    </script>
+</body>
+
+</html>

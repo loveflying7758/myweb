@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>封装函数</title>
+    <style>
+        .outNode span {
+            cursor: pointer;
+            margin-left: 10px;
+        }
+
+        .outNode .active {
+            background: red;
+        }
+
+        .outNode div {
+            width: 200px;
+            height: 200px;
+            background: #ccc;
+            display: none;
+        }
+
+        .outNode .show {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        function createTabPanel(obj) {
+            var outNode = document.createElement('div');
+            outNode.className = 'outNode';
+            document.body.appendChild(outNode);
+
+            for (var i = 0; i < obj.topValue.length; i++) {
+                var topNode = document.createElement(obj.topNode);
+                topNode.innerHTML = obj.topValue[i];
+                outNode.appendChild(topNode);
+            }
+
+            for (var i = 0; i < obj.bottomValue.length; i++) {
+                var bottomNode = document.createElement(obj.bottomNode);
+                bottomNode.innerHTML = obj.bottomValue[i];
+                outNode.appendChild(bottomNode);
+            }
+
+            var allTop = outNode.getElementsByTagName(obj.topNode);
+            var allBottom = outNode.getElementsByTagName(obj.bottomNode);
+            console.log(allTop, allBottom);
+
+            for (var i = 0; i < allTop.length; i++) {
+                allTop[i].index = i;
+                allTop[i].onclick = function () {
+                    for (var j = 0; j < allTop.length; j++) {
+                        allTop[j].className = '';
+                        allBottom[j].className = '';
+                    }
+                    this.className = obj.topClass;
+                    allBottom[this.index].className = obj.bottomClass;
+                }
+            }
+        }
+
+        createTabPanel({
+            topNode: 'span',
+            topValue: ['小学', '中学', '大学'],
+            topClass: 'active',
+            bottomNode: 'div',
+            bottomValue: ['小学打基础', '中学定方向', '大学做研究'],
+            bottomClass: 'show'
+        });
+    </script>
+</body>
+</htm1>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新页面</title>
+</head>
+
+<body>
+    <script>
+        var begin = new Date();//可用时间
+        var availableTime = new Date();//订单最早可用时间
+        var delayMinutes = 120;
+        var addMinutes = 0;
+        availableTime.setMinutes(availableTime.getMinutes() + delayMinutes);
+
+        var myYear = begin.getFullYear();
+        var myMonth = begin.getMonth() + 1;
+        var myDay = begin.getDate();
+        var myHour = begin.getHours();
+        var myMinute = begin.getMinutes();
+        var mySecond = begin.getSeconds();
+
+        myMinute >= 30 ? addMinutes = 60 - myMinute : addMinutes = 30 - myMinute;
+
+        start.setMinutes(start.getMinutes() + delayMinutes + addMinutes);
+        //start.setMinutes(delayMinutes + addMinutes);
+        var startYear = start.getFullYear();
+        var startMonth = start.getMonth() + 1;
+        var startDay = start.getDate();
+        var startHour = start.getHours();
+        var startMinute = start.getMinutes();
+        alert(delayMinutes + '分钟后开始：' + myYear + '年' + myMonth + '月' + myDay + '日' + myHour + '点' + myMinute + '分' + mySecond + '秒');
+
+        alert('最早可用开始时间：' + startYear + '年' + startMonth + '月' + startDay + '日' + startHour + '点' + startMinute + '分');
+    </script>
+
+</body>
+
+</html>

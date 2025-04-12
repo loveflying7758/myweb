@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="zn">
+<meta charset="utf-8">
+<title>输入查询界面</title>
+<head>
+    <title>Untitled Page</title>  
+        <script language="javascript" type="text/javascript">  
+  
+        function btnEnter_onclick() {  
+           var value = document.getElementById("txtNum").value;  
+           alert(value);  
+        }  
+  
+        function btnNum_onclick(i) {  
+            txtNum.value=txtNum.value+i;  
+        }  
+          
+        function clearText() {  
+                document.getElementById("txtNum").value = "";  
+         }  
+           
+         function delText() {  
+             var value = document.getElementById("txtNum").value;  
+             var str = value.substring(0,value.length-1);  
+             document.getElementById("txtNum").value = str;  
+         }  
+    </script>  
+<style type="text/css">
+.fb {
+	font-weight: 900;
+	/* [disabled]font-family: Arial, Helvetica, 微软雅黑; */
+}
+.ff {
+	font-family: 微软雅黑;
+}
+.btnStyle1 {
+	width: 70px;
+	height: 50px;
+}
+.btnStyle2 {
+	height: 104px;
+	width: 70px;
+}
+.btnStyle3 {
+	width: 144px;
+	height: 50px;
+}
+.fBig {
+	font-size: 22px;
+}
+.fLarge {
+	/* [disabled]font-weight: 100; */
+	font-size: 28px;
+}
+.inputRes {
+	height: 37px;
+	padding: 5px;
+	width: 320px;
+	color: brown;	
+}
+</style>
+</head>  
+<body>
+	<div style="margin:100px auto;width:1000px;height:620px;background:#DDEFF5;border: 1px solid #82CEE7;">
+		<div style="float:left;width:500px;height:600px;">
+		  <div style="height: 410px; margin-top: 50px;margin-left: 50px;text-align:center;background: lightblue;padding: 30px;border:1px solid #46A3C1;">
+			  <label class="ff fb fBig">查询结果</label><br/><br/>
+			  <input id="txtResult1" type="text" class="ff fb fBig inputRes" style="margin-top: 15px;"/>
+			  <input id="txtResult2" type="text" class="ff fb fBig inputRes" style="margin-top: 20px;"/>
+			  <input id="txtResult3" type="text" class="ff fb fBig inputRes" style="margin-top: 20px;"/>
+			  <input id="txtResult4" type="text" class="ff fb fBig inputRes" style="margin-top: 20px;"/>
+			  <input id="txtResult5" type="text" class="ff fb fBig inputRes" style="margin-top: 20px;"/>
+			</div>
+		</div>
+		
+		<div style="height: 410px;margin-top:50px;margin-right: 50px;float:right;text-align: center;background: lightblue;padding: 30px;border:1px solid #46A3C1;">
+			<label class="ff fb fBig">请输入您的办件流水号进行查询</label><br/><br/>
+			<input id="txtNum" type="text" class="ff fb fLarge" style="height:45px;width:360px;color:blue;text-align: center;"/>
+			<div style="margin:20px auto;">
+			<table style="padding:0px;display: inline-block;">
+				<tr>  
+					<td><button class="btnStyle1 ff fb fBig" onclick="return btnNum_onclick(1)">1</button></td>
+					<td><button class="btnStyle1 ff fb fBig" onclick="return btnNum_onclick(2)">2</button></td>
+					<td><button class="btnStyle1 ff fb fBig" onclick="return btnNum_onclick(3)">3</button></td>
+				</tr>  
+				<tr>  
+					<td><button class="btnStyle1 ff fb fBig" onclick="return btnNum_onclick(4)">4</button></td>
+					<td><button class="btnStyle1 ff fb fBig" onclick="return btnNum_onclick(5)">5</button></td>
+					<td><button class="btnStyle1 ff fb fBig" onclick="return btnNum_onclick(6)">6</button></td>
+				</tr>  
+				<tr>
+					<td><button class="btnStyle1 ff fb fBig" onclick="return btnNum_onclick(7)">7</button></td>
+					<td><button class="btnStyle1 ff fb fBig" onclick="return btnNum_onclick(8)">8</button></td>
+					<td><button class="btnStyle1 ff fb fBig" onclick="return btnNum_onclick(9)">9</button></td>
+				</tr> 
+				<tr>  
+					<td><button class="btnStyle1 ff fb fBig" onclick="return btnNum_onclick(0)">0</button></td>
+					<td><button class="btnStyle1 ff fb fBig" onclick="return btnNum_onclick('X')">X</button></td>
+					<td rowspan="2"><button class="btnStyle2 ff fb fBig" onclick="return confirm()">确定</button></td>
+				</tr>
+				<tr>
+					<td colspan="2"><button class="btnStyle3 ff fb fBig" onclick="return clearText()">清除</button></td>
+				</tr>  
+				<br/>
+			</table>
+			</div>
+		</div>
+		<button class="ff fb fBig btnStyle3" style="margin: 20px 50px;float: right;">返回</button>
+	</div>
+  
+</body>  
+</html> 

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>测试三种回调函数</title>
+
+</head>
+
+<body>
+    <script>
+
+        //test1
+
+        function greet(name, callback) {
+            console.log('Hello, ' + name);
+            callback();
+        }
+
+        greet('World', function () {
+            console.log('Callback called!');
+        });
+
+        //test2
+
+        function greetSync(name) {
+            console.log('Hello, ' + name);
+            return 'Hello, ' + name;
+        }
+
+        function greetAsync(name, callback) {
+            var message = greetSync(name);
+            callback(message);
+        }
+
+        greetAsync('World', function (message) {
+            console.log(message + ' (callback)');
+        });
+
+        //test3
+
+        function calculate(number, callback) {
+            var result = number * 2;
+            callback(result);
+        }
+
+        calculate(3, function (result) {
+            console.log('The result is: ' + result);
+        });
+
+        //test4
+
+        function calculate1(a, b, callback) {
+            if (isNaN(a + b)) {
+                alert('请输入正确数字')
+                return 0
+            }
+            return callback(a, b)
+        }
+        var add = calculate1(3, 5, function (a, b) {
+            return a + b
+        })
+
+        var subtract = calculate1(3, 5, function (a, b) {
+            return a - b
+        })
+
+        console.log(add, subtract)
+
+    </script>
+</body>
+
+</html>

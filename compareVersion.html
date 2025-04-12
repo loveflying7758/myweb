@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>新页面</title>
+    <style>
+    </style>
+</head>
+
+<body>
+    <label for="version1">第一个版本号</label>
+    <input type="text" id="version1" /><br>
+    <label for="version2">第二个版本号</label>
+    <input type="text" id="version2" /><br>
+    <button type="submit" onclick="compare()">比较</button>
+    <p id="result">结果：</p>
+
+    <script>
+        function compare() {
+            var v1 = document.getElementById('version1').value
+            var v2 = document.getElementById('version2').value
+            var res = document.getElementById('result')
+            var version1 = v1.split('.')
+            var version2 = v2.split('.')
+            const len = Math.max(version1.length, version2.length)
+
+            while (version1.length < len) {
+                version1.push('0')
+            }
+            while (version2.length < len) {
+                version2.push('0')
+            }
+
+            for (let i = 0; i < len; i++) {
+                const num1 = parseInt(version1[i])
+                const num2 = parseInt(version2[i])
+
+                if (num1 > num2) {
+                    return res.innerHTML = v1 + ' 版本号大'
+
+                } else if (num1 < num2) {
+                    return res.innerHTML = v2 + ' 版本号大'
+                }
+            }
+            res.innerHTML = '版本号相同'
+        }
+    </script>
+</body>
+
+</html>

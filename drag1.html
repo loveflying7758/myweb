@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        #div1 {
+            width: 200px;
+            height: 200px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            cursor: pointer;
+            background: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="div1"></div>
+    <script>
+        new Drag(div1);
+        function Drag(dom) {
+            this.dom = dom;
+            var _this = this;
+            this.dom.onmousedown = function (e) {
+                _this.ev = e || event;
+                /*alert(this);//div1
+                alert(_this);*///Drag
+                _this.l = _this.ev.clientX - this.offsetLeft;
+                _this.t = _this.ev.clientY - this.offsetTop;
+
+                document.onmousemove = function (e) {
+                    _this.ev = e || event;
+                    _this.dom.style.left = _this.ev.clientX - _this.l + 'px';
+                    _this.dom.style.top = _this.ev.clientY - _this.t + 'px';
+                }
+
+                document.onmouseup = function () {
+                    document.onmousemove = document.onmouseup = null;
+                }
+                return false;
+            }
+        }
+
+    </script>
+</body>
+</htm1>

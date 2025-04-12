@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <!--    <script src="../js/vue.global.js"></script>-->
+    <title>Vue在对应的getter和setter中进行相关DOM操作</title>
+</head>
+
+<body>
+    <script>
+        function dwn(s) {
+            document.write(s + "<br/>");
+        }
+
+        function Point(x, y) {
+            this.x = x;
+            this.y = y;
+        }
+
+        var p1 = new Point(1, 2);
+        var p2 = new Point(3, 4);
+        Point.prototype.z = 0; //动态为Point的原型添加了属性 这里是Object对象，给这个对象添加z属性
+        dwn(p1.z);
+        dwn(p2.z);
+
+    </script>
+</body>
+
+</html>

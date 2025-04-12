@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <script src="https://unpkg.com/vue@3"></script>
+    <script src="https://unpkg.com/vue-router@4"></script>
+    <title>VUE路由</title>
+    <style>
+        ._active {
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app"></div>
+    <script>
+        const myMixin = {
+            created() {
+                console.log('mixin 对象的钩子被调用')
+            }
+        }
+
+        const app = Vue.createApp({
+            mixins: [myMixin],
+            created() {
+                console.log('组件钩子被调用')
+            }
+        })
+
+        // => "mixin 对象的钩子被调用"
+        // => "组件钩子被调用"
+
+        app.mount('#app')
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新页面</title>
+</head>
+
+<body>
+    <script>
+        const dates = new Date()//取当前时间
+        const year = dates.getFullYear()
+        const month = dates.getMonth() + 1
+        const date = dates.getDate()
+        const day = dates.getDay()
+        const hour = dates.getHours()
+        const min = dates.getMinutes()
+        const days = ['日', '一', '二', '三', '四', '五', '六']
+        var isQuantum = true
+        let timeStr = 3600 * 24 * 1000 //一天的时间戳
+        let obj = {
+            0: "今天",
+            1: "明天",
+            2: "后天"
+        }
+        const now = dates.getTime()
+
+        var allDate = `${year}/${strFormat(month)}/${strFormat(date)}`
+        var monthDate = `${year}-${strFormat(month)}-${strFormat(date)}`
+        var weekDay = `星期${days[day]}`
+        var dayHour = strFormat(hour) + ':' + strFormat(min) + (isQuantum ? "" : ':00')
+        for (let i = 0; i < 7; i++) {
+            let theDate = new Date(now + timeStr * i)
+            let theWeekDay = `星期${days[theDate.getDay()]}`
+            weekDay = obj[i] ?? theWeekDay
+            console.log(weekDay)
+        }
+
+        console.log(allDate, monthDate, weekDay, dayHour)
+
+        function strFormat(str) {
+            return str < 10 ? `0${str}` : str
+        }
+
+
+    </script>
+
+</body>
+
+</html>

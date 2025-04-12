@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <title>VUE组合修饰符</title>
+</head>
+
+<body>
+    <div id="app">
+        <p style="font-size:25px;">计数器: {{ counter }}</p>
+        <!-- Alt + Enter -->
+        <button @keyup.alt.enter="counter++">{{msg}}</button>
+        <!-- Ctrl + Click -->
+        <div @click.ctrl="doSomething">Ctrl+点我</div>
+    </div>
+
+    <script>
+        const app = {
+            data() {
+                return {
+                    counter: 1,
+                    msg: '选中并Alt+Enter我'
+                }
+            },
+            methods: {
+                doSomething() {
+                    alert('Ctrl+Click组合')
+                }
+            }
+        }
+
+        Vue.createApp(app).mount('#app')
+
+    </script>
+</body>
+
+</html>

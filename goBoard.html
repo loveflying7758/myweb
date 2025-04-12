@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>模拟棋盘</title>
+    <style>
+        #box {
+            width: 380px;
+            height: 380px;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin-left: -190px;
+            margin-top: -190px;
+            border: 1px solid black;
+        }
+
+        .hide {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <p id="p1">这两个段落生成内联盒子,和它的结果</p>
+
+    <p id="p2">这两个元素之间没有距离。</p>
+    <button id='btn'>点我</button>
+    <script>
+        btn.onclick = function () {
+            p1.classList.add('hide');
+        }
+    </script>
+</body>
+
+</html>

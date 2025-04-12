@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <script src="https://unpkg.com/vue@3"></script>
+    <script src="https://unpkg.com/vue-router@4"></script>
+    <title>VUE路由</title>
+</head>
+
+<body>
+    <div id="app"></div>
+    <script>
+        const myMixin = {
+            methods: {
+                foo() {
+                    console.log('foo')
+                },
+                conflicting() {
+                    console.log('from mixin')
+                }
+            }
+        }
+
+        const app = Vue.createApp({
+            mixins: [myMixin],
+            methods: {
+                bar() {
+                    console.log('bar')
+                },
+                conflicting() {
+                    console.log('from self')
+                }
+            }
+        })
+
+        const vm = app.mount('#app')
+
+        vm.foo() // => "foo"
+        vm.bar() // => "bar"
+        vm.conflicting() // => "from self"
+
+    </script>
+</body>
+
+</html>

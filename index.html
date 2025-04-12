@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>电商APP演示</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .navbar {
+            background: #333;
+            color: white;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            padding: 0 1rem;
+            cursor: pointer;
+        }
+
+        .container {
+            display: flex;
+            padding: 1rem;
+        }
+
+        .sidebar {
+            width: 200px;
+            margin-right: 2rem;
+        }
+
+        .category-item {
+            padding: 0.5rem;
+            cursor: pointer;
+            border-bottom: 1px solid #eee;
+        }
+
+        .products {
+            flex-grow: 1;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+
+        .product-card {
+            border: 1px solid #ddd;
+            padding: 1rem;
+            border-radius: 5px;
+        }
+
+        .profile-section {
+            max-width: 500px;
+            margin: 2rem auto;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        input {
+            width: 100%;
+            padding: 0.5rem;
+            margin-top: 0.3rem;
+        }
+
+        button {
+            background: #333;
+            color: white;
+            padding: 0.5rem 1rem;
+            border: none;
+            cursor: pointer;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div>电商APP</div>
+        <div>
+            <a class="nav-link" onclick="showSection('home')">首页</a>
+            <a class="nav-link" onclick="showSection('profile')">个人中心</a>
+        </div>
+    </nav>
+
+    <div id="home" class="container">
+        <div class="sidebar">
+            <h3>产品分类</h3>
+            <div id="categories"></div>
+        </div>
+        <div class="products" id="products"></div>
+    </div>
+
+    <div id="profile" class="container hidden">
+        <div class="profile-section">
+            <h2>个人信息</h2>
+            <div id="profile-info"></div>
+            <form id="profile-form" onsubmit="saveProfile(event)">
+                <div class="form-group">
+                    <label>姓名：</label>
+                    <input type="text" id="name" required>
+                </div>
+                <div class="form-group">
+                    <label>邮箱：</label>
+                    <input type="email" id="email" required>
+                </div>
+                <button type="submit">保存信息</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // 模拟数据
+        const mockData = {
+            categories: [
+                { id: 1, name: '电子产品' },
+                { id: 2, name: '家用电器' },
+                { id: 3, name: '服装服饰' }
+            ],
+            products: [
+                { id: 1, name: '智能手机', price: 2999, category: 1, image: 'https://via.placeholder.com/150' },
+                { id: 2, name: '笔记本电脑', price: 8999, category: 1, image: 'https://via.placeholder.com/150' },
+                { id: 3, name: '智能电视', price: 4999, category: 2, image: 'https://via.placeholder.com/150' }
+            ]
+        };
+
+        // 初始化用户数据
+        let userProfile = JSON.parse(localStorage.getItem('profile')) || {
+            name: '张三',
+            email: 'zhangsan@example.com'
+        };
+
+        // 页面初始化
+        function init() {
+            renderCategories();
+            showProducts();
+            renderProfile();
+        }
+
+        // 渲染分类
+        function renderCategories() {
+            const container = document.getElementById('categories');
+            container.innerHTML = mockData.categories.map(category => `
+                <div class="category-item" onclick="showProducts(${category.id})">
+                    ${category.name}
+                </div>
+            `).join('');
+        }
+
+        // 显示商品
+        function showProducts(categoryId) {
+            const filteredProducts = categoryId 
+                ? mockData.products.filter(p => p.category === categoryId)
+                : mockData.products;
+
+            const container = document.getElementById('products');
+            container.innerHTML = filteredProducts.map(product => `
+                <div class="product-card">
+                    <img src="${product.image}" alt="${product.name}" style="width:100%">
+                    <h3>${product.name}</h3>
+                    <p>价格：¥${product.price}</p>
+                </div>
+            `).join('');
+        }
+
+        // 显示个人资料
+        function renderProfile() {
+            const container = document.getElementById('profile-info');
+            container.innerHTML = `
+                <p>姓名：${userProfile.name}</p>
+                <p>邮箱：${userProfile.email}</p>
+            `;
+
+            document.getElementById('name').value = userProfile.name;
+            document.getElementById('email').value = userProfile.email;
+        }
+
+        // 保存个人信息
+        function saveProfile(event) {
+            event.preventDefault();
+            userProfile = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value
+            };
+            localStorage.setItem('profile', JSON.stringify(userProfile));
+            renderProfile();
+            alert('信息已保存！');
+        }
+
+        // 切换页面显示
+        function showSection(sectionId) {
+            document.getElementById('home').classList.toggle('hidden', sectionId !== 'home');
+            document.getElementById('profile').classList.toggle('hidden', sectionId !== 'profile');
+        }
+
+        // 启动应用
+        init();
+    </script>
+</body>
+</html>

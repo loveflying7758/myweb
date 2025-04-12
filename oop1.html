@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var json = {
+            charging1: 30,
+            charging2: 10,
+            charging3: 0,
+            count: function (a) {//a是订单预约时间
+                var now = new Date();
+                var diffMinutes = Math.floor((a.getTime() - now.getTime()) / 60000);
+                if (diffMinutes < 120) {
+                    return json.charging1;
+                }
+                else if (diffMinutes >= 120 && diffMinutes < 1440) {
+                    return json.charging2;
+                }
+                else {
+                    return json.charging3;
+                }
+            }
+        }
+        var appointmentTime = new Date();
+        appointmentTime.setHours(appointmentTime.getHours() + 0.5);
+        alert("取消订单需扣除手续费：" + json.count(appointmentTime) + "元");
+    </script>
+</body>
+</htm1>

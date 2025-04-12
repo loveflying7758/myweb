@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="zn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>测试do while</title>
+    <link rel="stylesheet" href="css/css.css">
+</head>
+
+<body>
+</body>
+<script>
+    /*
+    a.unshift最前面插入一个数据，返回数组；
+    a.pop删除最后一个数据，返回删除的数据；
+    a.unshift(a.pop())执行的过程是a.pop()先删除最后的3，返回3；这时候的a就是[1,2]，再unshift(3)到前面，返回数组a就是[3,1,2]；
+    push/unshift/shift/pop执行结果和返回值都不一致，分别返回：新数组长度/新数组/要删除的数据/要删除的数据；
+    */
+    var a = [1, 2, 3];
+    alert(a.push(a.shift()));
+    alert(a);
+</script>
+
+</html>

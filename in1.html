@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新页面</title>
+</head>
+
+<body>
+    <script>
+        var a = [1, 2, 3];
+        alert(3 in a);          //3是数组序号，a中只有0,1,2，故false
+        alert(a.includes(3));   //确定值是否在数组中要用includes()
+        alert(a.indexOf(3) > 0 ? true : false);    //或者用indexOf()值查所在位置序号，查不到返回负值false
+        console.log(a);
+    </script>
+
+</body>
+
+</html>

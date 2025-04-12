@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>localhost测试用例</title>
+</head>
+
+<!-- <body>
+    <h1>我的第一个 Web 页面</h1>
+    <select id="month" name="list">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+        <option value="11">11</option>
+        <option value="12">12</option>
+    </select>月
+    <p id="demo"></p>
+    <button onclick="changeContent()" id="change">选定</button>
+    <script>
+        function changeContent() {
+            var myMonth = document.getElementById('month');
+            document.getElementById('demo').innerHTML = "你选的是" + myMonth.value + "月";
+        }        
+    </script>
+
+</body> -->
+
+<body>
+    <h1 id="myTitle">我的第一个 Web 页面</h1>
+    <select id="month" onchange="changeContent()" onclick="click()">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+        <option value="11">11</option>
+        <option value="12">12</option>
+    </select>月
+    <p id="demo"></p>
+    <script>
+        var myMonth = document.getElementById("month"),
+            demo = document.getElementById("demo"),
+            myTitle = document.getElementById("myTitle");
+        /*        function changeContent() {
+                    var myMonth = document.getElementById('month');
+                    document.getElementById('demo').innerHTML = "你选的是" + myMonth.value + "月";
+                }
+                function click() {
+                    alert(1);
+                    var myMonth = document.getElementById('month');
+                    document.getElementById('demo').innerHTML = "你选的是" + myMonth.value + "月";
+                }*/
+        myMonth.onclick = function () {
+            demo.innerHTML = "你选的是" + myMonth.value + "月";
+        }
+        myMonth.onchange = function () {
+            demo.innerHTML = "你选的是" + myMonth.value + "月";
+        }
+        myTitle.onclick = function () {
+            myTitle.innerHTML = "你点到我了";
+        }
+    </script>
+</body>
+
+</html>

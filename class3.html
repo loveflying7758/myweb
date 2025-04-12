@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>简易留言板</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <script src="../js/vue.global.js"></script>
+    <title>新页面</title>
+</head>
+
+<body>
+    <script>
+        let user = {
+            info: {
+                name: 'lis'
+            },
+            get name() {
+                return this.info.name
+            },
+            set name(newName) {
+                this.info.name = newName
+            }
+        }
+        user.name = 'Edward';
+        console.log(user.name);
+    </script>
+</body>
+
+</html>

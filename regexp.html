@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>正则表达式</title>
+
+</head>
+
+<body>
+    <script>
+        var patt = new RegExp("\\b", "g");
+        var str = "find_123fqah?><";
+        alert(patt.test(str));
+        /*简单密码验证
+        const password = 'a23aBc123_';
+        const regex = /^[A-z]\w{5,9}$/;
+        console.log(regex.test(password)); // true*/
+        /*
+        var patt = /ele/g;
+        var str = "angel";
+        alert(patt.exec(str));*/
+        /*身份证验证
+                var patt = /^\d{17}[0-9xX]$/;
+                var str = "51078119770315339X";
+                alert(patt.test(str));*/
+
+    </script>
+</body>
+</htm1>

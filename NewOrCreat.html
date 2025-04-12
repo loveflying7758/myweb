@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <script src="js/vue.min.js"></script>
+    <title>测试vue</title>
+</head>
+
+<body>
+    <!--这是我们的View-->
+    <div id="app">
+    </div>
+</body>
+
+<script>
+    function person(name) {
+        this.name = name;
+    }
+
+    const person1 = new person('Alice');
+    console.log(person1.name);
+
+    const person2 = Object.create(person1);
+    console.log(person2.name);  // 输出：Alice
+
+</script>
+
+</html>

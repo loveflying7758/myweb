@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <title>v-for</title>
+</head>
+
+<body>
+    <div id="app">
+        <li v-for="item in items" :key="item.id">{{item.text}}</li>
+    </div>
+
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return {
+                    items: [
+                        { id: 1, text: 'Item 1' },
+                        { id: 2, text: 'Item 2' },
+                        { id: 3, text: 'Item 3' }
+                    ]
+                }
+            }
+        })
+
+        const vm = app.mount('#app')
+    </script>
+</body>
+
+</html>

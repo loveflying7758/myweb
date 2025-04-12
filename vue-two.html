@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <title>v-bind</title>
+</head>
+
+<body>
+    <div id="app" @click="four($event)">
+        <p @click=""></p>
+        <button @click="one($event),two($event)">点击</button>
+        </p>
+    </div>
+
+    <script>
+        const app = {
+            data() {
+            },
+            methods: {
+                one(event) {
+                    alert('第一下')
+                },
+                two(event) {
+                    alert('第二下')
+                }
+            }
+        }
+        Vue.createApp(app).mount('#app')
+
+    </script>
+</body>
+
+</html>

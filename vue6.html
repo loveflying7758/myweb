@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <title>v-bind</title>
+</head>
+
+<body>
+    <div id="app">
+        <img v-bind:src="imageSrc" alt="美女">
+    </div>
+
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return {
+                    imageSrc: 'image/1.jpg'
+                }
+            }
+        })
+
+        const vm = app.mount('#app')
+    </script>
+</body>
+
+</html>

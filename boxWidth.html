@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .parent {
+            position: relative;
+            margin: 0 auto;
+            width: 500px;
+            height: 500px;
+            background-color: #000;
+        }
+
+        .son {
+            /*box-sizing：
+1. border-box：  width为content+padding+border
+2. content-box（默认属性值）： width的是content，padding以外的再另算。
+                        box-sizing: border-box;*/
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            margin: auto;
+            padding: 10px;
+            width: 476px;
+            height: 476px;
+            border: 1px solid red;
+            background-color: #ccc;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="parent">
+        <div class="son">
+        </div>
+    </div>
+</body>
+
+</html>

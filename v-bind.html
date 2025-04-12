@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <style>
+        .wrapper {
+            width: 200px;
+            height: 100px;
+            background: green;
+        }
+
+        .one {
+            width: 200px;
+            height: 100px;
+            background: red;
+        }
+    </style>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <title>v-bind</title>
+</head>
+
+<body>
+    <script type="importmap">
+        {
+          "imports": {
+            "vue": "https://unpkg.com/vue@3/dist/vue.esm-browser.js"
+          }
+        }
+      </script>
+
+    <div id='app' v-bind="objectOfAttrs">{{msg}}</div>
+
+    <script type="module">
+
+        import { createApp } from 'vue'
+
+        const app = createApp({
+            data() {
+                return {
+                    msg: 'hello'
+                }
+            }
+        })
+
+        app.mount('#app')
+
+        const objectOfAttrs = {
+            name: 'theOne',
+            class: 'wrapper'
+        }
+        alert(objectOfAttrs.name)
+        objectOfAttrs.class = 'one'
+        alert(objectOfAttrs.class)
+    </script>
+</body>
+
+</html>

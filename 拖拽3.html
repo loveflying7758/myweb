@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>拖拽</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        #div1 {
+            width: 100px;
+            height: 100px;
+            background: red;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+    </style>
+</head>
+
+<body>
+    adfadfadfasdfasdfasdf
+    <div id="div1"></div>
+
+    <script>
+        div1.onmousedown = function () {
+            var w = event.clientX - div1.offsetLeft;
+            var h = event.clientY - div1.offsetTop;
+            document.onmousemove = function () {
+                var offsetX = event.clientX - w;
+                var offsetY = event.clientY - h;
+                if (offsetX < 0) offsetX = 0;
+                if (offsetY < 0) offsetY = 0;
+                if (offsetX > innerWidth - div1.offsetWidth) offsetX = innerWidth - div1.offsetWidth;
+                if (offsetY > innerHeight - div1.offsetHeight) offsetY = innerHeight - div1.offsetHeight;
+                div1.style.left = offsetX + "px";
+                div1.style.top = offsetY + "px";
+            }
+            document.onmouseup = function () {
+                document.onmousemove = null;
+                document.onmouseup = null;
+            }
+            return false;
+        }
+
+    </script>
+</body>
+
+</html>
